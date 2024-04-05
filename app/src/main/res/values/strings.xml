@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Farm Wise</string>
+    <string name="select">Select</string>
+    <string name="predict">Predict</string>
+    <string name="large_text">
+        "Material is the metaphor"
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_result">ResultActivity</string>
+    <string name="title_activity_weather">Weather</string>
+    <string name="home">Home</string>
+    <string name="weather_analysis">Weather</string>
+    <string name="logout">Logout</string>
+    <string name="schemes">Schemes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

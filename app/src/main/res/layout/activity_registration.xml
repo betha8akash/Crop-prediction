@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFFAE6"
+    tools:context=".Registration">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/layoutround"
+        android:padding="20dp"
+        android:elevation="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="REGISTRATION"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round"
+            android:layout_marginTop="20dp"
+            android:drawableRight="@drawable/person_black"
+            android:hint="User name"
+            android:inputType="textPersonName"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"/>
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round"
+            android:layout_marginTop="20dp"
+            android:drawableRight="@drawable/local_phone"
+            android:hint="Mobile no"
+            android:inputType="phone"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"/>
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round"
+            android:layout_marginTop="20dp"
+            android:drawableRight="@drawable/credit_card"
+            android:hint="Aadhar no"
+            android:inputType="phone"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"/>
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round"
+            android:layout_marginTop="20dp"
+            android:drawableRight="@drawable/place"
+            android:hint="Place"
+            android:inputType="textPersonName"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"/>
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round"
+            android:layout_marginTop="20dp"
+            android:drawableRight="@drawable/fiber_pin"
+            android:hint="Pincode no"
+            android:inputType="phone"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"/>
+
+        <EditText
+            android:id="@+id/editText6"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round"
+            android:layout_marginTop="20dp"
+            android:drawableRight="@drawable/password_key"
+            android:hint="Set Password"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"/>
+
+        <Button
+            android:id="@+id/btnreg"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Register"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textAllCaps="true"
+            android:textColor="#FFFF"
+            android:textSize="20dp"/>
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:onClick="backtologin"
+            android:text="Back to Login"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:textAllCaps="false"
+            android:textColor="#FFFF"
+            android:textSize="15dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

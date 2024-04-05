@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/crop_recommendation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="20dp"
+        android:text="Crop Recommendation"
+        android:textAlignment="center"
+        android:textColor="#000001"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nitrogen Content (%)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phosphorous Content (%)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Potassium Content (%)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextTemperature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="48dp"
+        android:hint="Temperature (°C)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextHumidity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Relative Humidity (%)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextPh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="pH Value"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextRainfall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Rainfall (mm)"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/buttonPredict"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Predict" />
+
+    <Button
+        android:id="@+id/buttonReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Reset" />
+
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
+        android:textColor="@color/black" />
+
+</LinearLayout>

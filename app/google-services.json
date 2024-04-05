@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "225423252006",
+    "project_id": "farm-wise-18d7c",
+    "storage_bucket": "farm-wise-18d7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225423252006:android:6ce91edbffa275b2f824e7",
+        "android_client_info": {
+          "package_name": "com.example.farmwise"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABgTCqOHwJxY4ieWxtX1H765kFCJwzw-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
