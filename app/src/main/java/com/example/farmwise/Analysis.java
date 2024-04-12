@@ -69,25 +69,39 @@ public class Analysis extends AppCompatActivity{
 
 
         cityAndStateTextView = findViewById(R.id.location);
-        result = findViewById(R.id.tv1);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
-        // method to get the location
         getLastLocation();
         fetchWeatherData(latitude,longitude);
-
-
-
     }
+
+    private Weather[] weatherData;
     private void fetchWeatherData(double latitude, double longitude) {
         String api="3205087d3c48f27c0133a27d37a165d1";
-        String url = "https://api.openweathermap.org/data/2.5/forecast?lat="+latitude+"&lon="+longitude+"&appid="+api;
+        String url = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + api;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 String s_response = response.toString();
-                List<Map<String, Object>> weatherDataList = extractWeatherData(s_response);
-                result.setText(weatherDataList+" ");
+                try {
+                    JSONArray forecastArray = response.getJSONArray("list");
+                    weatherData = new Weather[forecastArray.length()];
+                    for (int i = 0; i < forecastArray.length(); i++) {
+                        JSONObject forecastObject = forecastArray.getJSONObject(i);
+                        String date = forecastObject.getString("dt_txt");
+                        String time = date.substring(11, 16); // get the time from the datetime string
+                        JSONObject weatherObject = forecastObject.getJSONArray("weather").getJSONObject(0);
+                        String description = weatherObject.getString("description");
+                        JSONObject mainObject = forecastObject.getJSONObject("main");
+                        double temperature = mainObject.getDouble("temp") - 273.15; // convert from Kelvin to Celsius
+                        int humidity = mainObject.getInt("humidity");
+
+                        // save the data in a Weather object
+                        Weather weather = new Weather(date, time, description, temperature, humidity);
+                        weatherData[i] = weather;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -95,47 +109,10 @@ public class Analysis extends AppCompatActivity{
                 Log.e(TAG, "onErrorResponse: ", error);
             }
         });
-    }
-    public List<Map<String, Object>> extractWeatherData(String jsonResponse) {
-        List<Map<String, Object>> weatherDataList = new ArrayList<>();
 
-        try {
-            JSONObject jsonObject = new JSONObject(jsonResponse);
-            JSONArray forecastList = jsonObject.getJSONArray("list");
-
-            Map<String, List<Map<String, Object>>> groupedForecasts = new HashMap<>();
-
-            for (int i = 0; i < forecastList.length(); i++) {
-                JSONObject forecastObj = forecastList.getJSONObject(i);
-                String dateTime = forecastObj.getString("dt_txt").split(" ")[0];
-
-                Map<String, Object> weatherInfo = new HashMap<>();
-                weatherInfo.put("dateTime", forecastObj.getString("dt_txt"));
-                weatherInfo.put("temperature", forecastObj.getJSONObject("main").getDouble("temp"));
-                weatherInfo.put("humidity", forecastObj.getJSONObject("main").getInt("humidity"));
-                weatherInfo.put("weatherDescription", forecastObj.getJSONArray("weather").getJSONObject(0).getString("description"));
-
-                if (groupedForecasts.containsKey(dateTime)) {
-                    groupedForecasts.get(dateTime).add(weatherInfo);
-                } else {
-                    List<Map<String, Object>> dailyForecast = new ArrayList<>();
-                    dailyForecast.add(weatherInfo);
-                    groupedForecasts.put(dateTime, dailyForecast);
-                }
-            }
-
-            for (Map.Entry<String, List<Map<String, Object>>> entry : groupedForecasts.entrySet()) {
-                Map<String, Object> weatherData = new HashMap<>();
-                weatherData.put("date", entry.getKey());
-                weatherData.put("forecast", entry.getValue());
-                weatherDataList.add(weatherData);
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return weatherDataList;
+        // add the request to the RequestQueue
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonObjectRequest);
     }
     @SuppressLint("MissingPermission")
     private void getLastLocation() {

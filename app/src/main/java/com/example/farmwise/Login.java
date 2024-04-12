@@ -43,16 +43,6 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String userEntry = username.getText().toString();
-//                String passwordEntry = password.getText().toString();
-//
-//                if (userEntry.length() != 0 && passwordEntry.length() != 0){
-//                    valid(userEntry,passwordEntry);
-//                    username.setText("");
-//                    password.setText("");
-//                }else {
-//                    Toast.makeText(Login.this,"Plz enter the details",Toast.LENGTH_SHORT).show();
-//                }
                 if (!validateUsername() | !validatePassword()){
                     
                 } else{
