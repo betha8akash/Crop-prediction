@@ -185,23 +185,21 @@ public class ScrollingActivity extends AppCompatActivity {
             int[] topThreeIndices = getTopThreePredictedClasses(outputValues[0]);
             String[] topThreeClassNames = getTopThreeClassNames(topThreeIndices);
 
-            // Display the prediction
-            StringBuilder resultTextBuilder = new StringBuilder("Top Three Suitable Crops:\n");
+            // Create a string array to hold the top three crop names
+            String[] topThreeCropNames = new String[3];
             for (int i = 0; i < 3; i++) {
-                resultTextBuilder.append("\t\t\t\t\tA").append(i + 1).append(". ").append(topThreeClassNames[i]);
-                if (i < 2) {
-                    resultTextBuilder.append("\n");
-                }
+                topThreeCropNames[i] = topThreeClassNames[i];
             }
-//            textViewResult.setText(resultTextBuilder.toString());
-            String resultText = resultTextBuilder.toString();
+
+            // Create an Intent and put the string array as an extra
             Intent intent = new Intent(this, ResultActivity.class);
-            intent.putExtra("resultText", resultText);
+            intent.putExtra("topThreeCropNames", topThreeCropNames);
             startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
 
 //    private void makePrediction() {

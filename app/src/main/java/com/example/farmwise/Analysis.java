@@ -1,5 +1,7 @@
 package com.example.farmwise;
 
+import static android.content.ContentValues.TAG;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,6 +14,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -35,20 +39,24 @@ import com.google.android.gms.tasks.Task;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONArray;
+
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.Map;
+import java.util.ArrayList;
 
-public class Analysis extends AppCompatActivity {
+public class Analysis extends AppCompatActivity{
 
 
     FusedLocationProviderClient mFusedLocationClient;
 
-    TextView conditions,temperature, cityAndStateTextView;
+    TextView cityAndStateTextView,result;
 
-    Set<String> uniqueDates;
     ImageView imageView;
 
     double latitude,longitude;
@@ -60,18 +68,74 @@ public class Analysis extends AppCompatActivity {
         setContentView(R.layout.activity_analysis);
 
 
-        cityAndStateTextView = findViewById(R.id.cityAndStateTextView);
-        conditions = findViewById(R.id.conditions_text_view);
-        temperature = findViewById(R.id.temperature_text_view);
-        imageView = findViewById(R.id.weather_image_view);
-        imageView.setImageResource(R.drawable.cloudy);
+        cityAndStateTextView = findViewById(R.id.location);
+        result = findViewById(R.id.tv1);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         // method to get the location
         getLastLocation();
+        fetchWeatherData(latitude,longitude);
+
+
+
+    }
+    private void fetchWeatherData(double latitude, double longitude) {
         String api="3205087d3c48f27c0133a27d37a165d1";
         String url = "https://api.openweathermap.org/data/2.5/forecast?lat="+latitude+"&lon="+longitude+"&appid="+api;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                String s_response = response.toString();
+                List<Map<String, Object>> weatherDataList = extractWeatherData(s_response);
+                result.setText(weatherDataList+" ");
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "onErrorResponse: ", error);
+            }
+        });
+    }
+    public List<Map<String, Object>> extractWeatherData(String jsonResponse) {
+        List<Map<String, Object>> weatherDataList = new ArrayList<>();
 
+        try {
+            JSONObject jsonObject = new JSONObject(jsonResponse);
+            JSONArray forecastList = jsonObject.getJSONArray("list");
+
+            Map<String, List<Map<String, Object>>> groupedForecasts = new HashMap<>();
+
+            for (int i = 0; i < forecastList.length(); i++) {
+                JSONObject forecastObj = forecastList.getJSONObject(i);
+                String dateTime = forecastObj.getString("dt_txt").split(" ")[0];
+
+                Map<String, Object> weatherInfo = new HashMap<>();
+                weatherInfo.put("dateTime", forecastObj.getString("dt_txt"));
+                weatherInfo.put("temperature", forecastObj.getJSONObject("main").getDouble("temp"));
+                weatherInfo.put("humidity", forecastObj.getJSONObject("main").getInt("humidity"));
+                weatherInfo.put("weatherDescription", forecastObj.getJSONArray("weather").getJSONObject(0).getString("description"));
+
+                if (groupedForecasts.containsKey(dateTime)) {
+                    groupedForecasts.get(dateTime).add(weatherInfo);
+                } else {
+                    List<Map<String, Object>> dailyForecast = new ArrayList<>();
+                    dailyForecast.add(weatherInfo);
+                    groupedForecasts.put(dateTime, dailyForecast);
+                }
+            }
+
+            for (Map.Entry<String, List<Map<String, Object>>> entry : groupedForecasts.entrySet()) {
+                Map<String, Object> weatherData = new HashMap<>();
+                weatherData.put("date", entry.getKey());
+                weatherData.put("forecast", entry.getValue());
+                weatherDataList.add(weatherData);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return weatherDataList;
     }
     @SuppressLint("MissingPermission")
     private void getLastLocation() {

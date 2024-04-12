@@ -14,4 +14,6 @@
     <string name="schemes">Schemes</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="apple">Apple</string>
+    <string name="best_suited_crops_for_your_soil">Best suited crops for your soil</string>
 </resources>
