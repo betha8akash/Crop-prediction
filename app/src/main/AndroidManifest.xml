@@ -14,9 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgroGuru" >
         <activity
+            android:name=".SendRequestTask"
+            android:exported="false" />
+        <activity
             android:name=".ResultActivity"
+            android:label="Best Suited Crops"
             android:exported="false"
-            android:label="@string/title_activity_result"
             android:theme="@style/Theme.AgroGuru" />
         <activity android:name=".ScrollingActivity" />
         <activity android:name=".Analysis" />

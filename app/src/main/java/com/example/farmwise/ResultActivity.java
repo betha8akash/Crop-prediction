@@ -39,7 +39,7 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_result);
-        String[] topThreeCropNames = getIntent().getStringArrayExtra("topThreeCropNames");
+        String[] topThreeCropNames = getIntent().getStringArrayExtra("topThreeCrops");
         setCropDetails(topThreeCropNames);
         locationTextView = findViewById(R.id.locationTextView);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);

@@ -1,10 +1,18 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".ResultActivity">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".ResultActivity" >
 
     <LinearLayout android:id="@+id/main" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="#18b464" android:padding="16dp">
 
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#18b464" android:padding="10dp">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#18b464" android:paddingTop="20dp">
 
-            <TextView android:id="@+id/locationTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Location" android:textSize="18sp" android:textColor="@color/white" android:layout_alignParentEnd="true" android:layout_marginEnd="16dp" />
+            <TextView
+                android:id="@+id/locationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="0dp"
+                android:text="Location"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
         </RelativeLayout>
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/best_suited_crops_for_your_soil" android:textSize="24sp" android:textStyle="bold" android:textColor="@color/white" android:layout_marginBottom="16dp" android:letterSpacing="0.05" android:fontFamily="sans-serif-medium" android:paddingTop="10dp"/>

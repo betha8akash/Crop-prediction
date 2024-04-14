@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.tensorflow.lite.Interpreter;
@@ -25,8 +26,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-import android.content.Intent;
+import java.util.HashMap;
+import java.util.Map;
 
+import android.content.Intent;
+import com.android.volley.Request;
 public class ScrollingActivity extends AppCompatActivity {
 
     private EditText editTextN, editTextP, editTextK, editTextTemperature, editTextHumidity, editTextPh, editTextRainfall;
@@ -106,10 +110,13 @@ public class ScrollingActivity extends AppCompatActivity {
             Button buttonReset = findViewById(R.id.buttonReset);
             textViewResult = findViewById(R.id.textViewResult);
 
+
+
+
             buttonPredict.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    makePrediction();
+                    sendRequestWithVolley();
                 }
             });
 
@@ -120,6 +127,65 @@ public class ScrollingActivity extends AppCompatActivity {
                 }
             });
         }
+
+    public void sendRequestWithVolley() {
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        // Construct the URL with query parameters
+        String url = "https://akashbetha.pythonanywhere.com/predict" +
+                "?nitrogen=" + editTextN.getText().toString() +
+                "&phosphorous=" + editTextP.getText().toString() +
+                "&potassium=" + editTextK.getText().toString() +
+                "&temperature=" + editTextTemperature.getText().toString() +
+                "&humidity=" + editTextHumidity.getText().toString() +
+                "&ph=" + editTextPh.getText().toString() +
+                "&rainfall=" + editTextRainfall.getText().toString();
+
+        // Create a JsonObjectRequest
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            // Extract the top_three_crops array from the response
+                            JSONArray topThreeCropsArray = response.getJSONArray("top_three_crops");
+
+                            // Convert JSONArray to a String array
+                            String[] topThreeCrops = new String[topThreeCropsArray.length()];
+                            for (int i = 0; i < topThreeCropsArray.length(); i++) {
+                                topThreeCrops[i] = topThreeCropsArray.getString(i);
+                            }
+
+                            // Create an Intent to start the ResultActivity
+                            Intent intent = new Intent(ScrollingActivity.this, ResultActivity.class);
+
+                            // Add the topThreeCrops array as an extra to the Intent
+                            intent.putExtra("topThreeCrops", topThreeCrops);
+
+                            // Start the ResultActivity
+                            startActivity(intent);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Handle the error
+                        Log.e("Volley", "Error: " + error.getMessage());
+                    }
+                }
+        );
+
+        // Add the request to the RequestQueue
+        queue.add(request);
+    }
+
 
     private ByteBuffer loadModelFile() throws IOException {
         // Load the model file from assets
