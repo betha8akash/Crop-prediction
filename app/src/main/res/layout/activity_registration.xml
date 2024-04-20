@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="REGISTRATION"
+            android:text="@string/registration"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -36,7 +36,7 @@
             android:background="@drawable/round"
             android:layout_marginTop="20dp"
             android:drawableRight="@drawable/person_black"
-            android:hint="User name"
+            android:hint="@string/user_name"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"/>
@@ -48,7 +48,7 @@
             android:background="@drawable/round"
             android:layout_marginTop="20dp"
             android:drawableRight="@drawable/local_phone"
-            android:hint="Mobile no"
+            android:hint="@string/mobile_no"
             android:inputType="phone"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"/>
@@ -60,7 +60,7 @@
             android:background="@drawable/round"
             android:layout_marginTop="20dp"
             android:drawableRight="@drawable/credit_card"
-            android:hint="Aadhar no"
+            android:hint="@string/aadhar_no"
             android:inputType="phone"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"/>
@@ -72,7 +72,7 @@
             android:background="@drawable/round"
             android:layout_marginTop="20dp"
             android:drawableRight="@drawable/place"
-            android:hint="Place"
+            android:hint="@string/location"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"/>
@@ -84,7 +84,7 @@
             android:background="@drawable/round"
             android:layout_marginTop="20dp"
             android:drawableRight="@drawable/fiber_pin"
-            android:hint="Pincode no"
+            android:hint="@string/pincode_number"
             android:inputType="phone"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"/>
@@ -96,7 +96,7 @@
             android:background="@drawable/round"
             android:layout_marginTop="20dp"
             android:drawableRight="@drawable/password_key"
-            android:hint="Set Password"
+            android:hint="@string/set_password"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"/>
 
@@ -104,7 +104,7 @@
             android:id="@+id/btnreg"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:text="Register"
+            android:text="@string/register"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:textAllCaps="true"
@@ -115,7 +115,7 @@
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:onClick="backtologin"
-            android:text="Back to Login"
+            android:text="@string/back_to_login"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:textAllCaps="false"

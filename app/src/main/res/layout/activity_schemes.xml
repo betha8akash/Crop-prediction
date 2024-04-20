@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Government Schemes"
+        android:text="@string/government_scheme"
         android:textAlignment="center"
         android:textColor="#FFFF"
         android:textSize="35dp"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-thin"
-            android:text="Pradhan Mantri Fasal Bima Yojana"
+            android:text="@string/pradhan_mantri_fasal_bima_yojana"
             android:textAlignment="center"
             android:textColor="#81530D"
             android:textSize="20dp"
@@ -60,7 +60,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:onClick="web5"
-            android:text="Visit Webpage"
+            android:text="@string/visit_webpage"
             android:textAllCaps="false" />
     </LinearLayout>
 
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-thin"
-            android:text="Pradhan Matri Kisan Maandhan Yojana"
+            android:text="@string/pradhan_matri_kisan_maandhan_yojana"
             android:textAlignment="center"
             android:textColor="#81530D"
             android:textSize="20dp"
@@ -93,7 +93,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:onClick="web6"
-            android:text="Visit Webpage"
+            android:text="@string/visit_webpage"
             android:textAllCaps="false" />
     </LinearLayout>
 
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-thin"
-            android:text="PM - Kisan Scheme"
+            android:text="@string/pm_kisan_scheme"
             android:textColor="#81530D"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -125,7 +125,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:onClick="web7"
-            android:text="Visit Webpage"
+            android:text="@string/visit_webpage"
             android:textAllCaps="false" />
     </LinearLayout>
 
@@ -147,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-thin"
-            android:text="National Agriculture Market\n(e - NAM)"
+            android:text="@string/national_agriculture_market_n_e_nam"
             android:textAlignment="center"
             android:textColor="#81530D"
             android:textSize="20dp"
@@ -158,7 +158,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:onClick="web8"
-            android:text="Visit Webpage"
+            android:text="@string/visit_webpage"
             android:textAllCaps="false" />
     </LinearLayout>
 

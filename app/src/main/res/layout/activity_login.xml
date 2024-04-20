@@ -49,7 +49,7 @@
                 android:id="@+id/ed1"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="User Name"
+                android:hint="@string/user_name"
                 android:textSize="20dp"
                 android:background="@drawable/round"
                 android:layout_marginTop="20dp"
@@ -62,7 +62,7 @@
                 android:id="@+id/ed2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:textSize="20dp"
                 android:background="@drawable/round"
                 android:layout_marginTop="20dp"
@@ -76,12 +76,13 @@
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:text="Login"
+            android:text="@string/login"
             android:textAllCaps="true"
             android:elevation="16dp"
             android:layout_margin="20dp"
             android:textColor="#FFFF"
             android:textSize="20dp"/>
+
 
         <Button
             android:layout_width="250dp"
@@ -90,7 +91,18 @@
             android:layout_margin="-10dp"
             android:elevation="16dp"
             android:onClick="reg"
-            android:text="New user?  Register here"
+            android:text="@string/new_user_register_here"
+            android:textAllCaps="false"
+            android:textColor="#FFFF"
+            android:textSize="15dp" />
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="-10dp"
+            android:elevation="16dp"
+            android:onClick="Language"
+            android:text="@string/change_language"
             android:textAllCaps="false"
             android:textColor="#FFFF"
             android:textSize="15dp" />

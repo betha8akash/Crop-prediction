@@ -56,6 +56,8 @@ public class Analysis extends AppCompatActivity{
 
     FusedLocationProviderClient mFusedLocationClient;
 
+
+
     TextView cityAndStateTextView,result;
 
     ImageView imageView;
@@ -99,7 +101,7 @@ public class Analysis extends AppCompatActivity{
                             JSONObject weatherObject = forecastObject.getJSONArray("weather").getJSONObject(0);
                             String description = weatherObject.getString("description");
                             JSONObject mainObject = forecastObject.getJSONObject("main");
-                            double temperature = mainObject.getDouble("temp") - 273.15; // convert from Kelvin to Celsius
+                            double temperature = mainObject.getDouble("temp_max") - 273.15; // convert from Kelvin to Celsius
                             int humidity = mainObject.getInt("humidity");
                             JSONObject windObject = forecastObject.getJSONObject("wind");
                             double windSpeed = windObject.getDouble("speed");

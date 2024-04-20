@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Informative Blogs"
+        android:text="@string/informative_blog"
         android:textAlignment="center"
         android:textColor="#FFFF"
         android:textSize="35dp"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-thin"
-            android:text="Agriculture and Technology"
+            android:text="@string/agriculture_and_technology"
             android:textColor="#81530D"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -60,7 +60,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:onClick="web1"
-            android:text="Visit Webpage"
+            android:text="@string/visit_webpage"
             android:textAllCaps="false" />
     </LinearLayout>
 
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-thin"
-            android:text="My Kisan Dost"
+            android:text="@string/my_kisan_dost"
             android:textColor="#81530D"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -91,7 +91,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:onClick="web2"
-            android:text="Visit Webpage"
+            android:text="@string/visit_webpage"
             android:textAllCaps="false" />
     </LinearLayout>
 
@@ -113,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-thin"
-            android:text="Agrifarming"
+            android:text="@string/agrifarming"
             android:textColor="#81530D"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -123,7 +123,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:onClick="web3"
-            android:text="Visit Webpage"
+            android:text="@string/visit_webpage"
             android:textAllCaps="false" />
     </LinearLayout>
 
@@ -145,7 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-thin"
-            android:text="Roysfarm"
+            android:text="@string/roysfarm"
             android:textColor="#81530D"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -155,7 +155,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:onClick="web4"
-            android:text="Visit Webpage"
+            android:text="@string/visit_webpage"
             android:textAllCaps="false" />
     </LinearLayout>
 

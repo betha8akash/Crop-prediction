@@ -1,8 +1,14 @@
 <resources>
+    <string-array name="languages">
+        <item>English</item>
+        <item>Telugu</item>
+        <item>Tamil</item>
+        <item>Hindi</item>
+    </string-array>
     <string name="app_name">Farm Wise</string>
     <string name="select">Select</string>
     <string name="predict">Predict</string>
-    <string name="large_text">
+    <string name="large_text" translatable="false">
         "Material is the metaphor"
     </string>
     <string name="action_settings">Settings</string>
@@ -12,9 +18,61 @@
     <string name="weather_analysis">Weather</string>
     <string name="logout">Logout</string>
     <string name="schemes">Schemes</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="apple">Apple</string>
     <string name="best_suited_crops_for_your_soil">Best suited crops for your soil</string>
     <string name="weather_forecast">Weather Forecast</string>
+    <string name="change_language">Change Language</string>
+    <string name="harvest_hub">Harvest Hub</string>
+    <string name="crop_prediction">Crop Prediction</string>
+    <string name="weather">Weather Analysis</string>
+    <string name="add_harvest_details">Add Harvest Details</string>
+    <string name="all_harvest_details">All Harvest Details</string>
+    <string name="informative_blogs">Informative Blogs</string>
+    <string name="government_schemes">Government schemes</string>
+    <string name="forecast">Forecast</string>
+    <string name="informative_blog">Informative Blogs</string>
+    <string name="agriculture_and_technology">Agriculture and Technology</string>
+    <string name="visit_webpage">Visit Webpage</string>
+    <string name="my_kisan_dost">My Kisan Dost</string>
+    <string name="agrifarming">Agrifarming</string>
+    <string name="roysfarm">Roysfarm</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="new_user_register_here">New user? Register here</string>
+    <string name="registration">REGISTRATION</string>
+    <string name="mobile_no">Mobile no</string>
+    <string name="aadhar_no">Aadhar no</string>
+    <string name="location">Location</string>
+    <string name="pincode_number">Pincode number</string>
+    <string name="set_password">Set Password</string>
+    <string name="register">Register</string>
+    <string name="back_to_login">Back to Login</string>
+    <string name="government_scheme">Government Schemes</string>
+    <string name="pradhan_mantri_fasal_bima_yojana">Pradhan Mantri Fasal Bima Yojana</string>
+    <string name="pradhan_matri_kisan_maandhan_yojana">Pradhan Matri Kisan Maandhan Yojana</string>
+    <string name="national_agriculture_market_n_e_nam">National Agriculture Market\n(e - NAM)</string>
+    <string name="pm_kisan_scheme">PM - Kisan Scheme</string>
+    <string name="nitrogen_content">Nitrogen Content (%)</string>
+    <string name="phosphorous_content">Phosphorous Content (%)</string>
+    <string name="potassium_content">Potassium Content (%)</string>
+    <string name="temperature_c">Temperature (°C)</string>
+    <string name="relative_humidity">Relative Humidity (%)</string>
+    <string name="ph_value">pH Value</string>
+    <string name="rainfall_mm">Rainfall (mm)</string>
+    <string name="reset">Reset</string>
+    <string name="add_harvest_detail">Add Harvest Details</string>
+    <string name="month_amp_year_of_harvest"><![CDATA[Month & year of harvest]]></string>
+    <string name="crop_name">Crop Name</string>
+    <string name="approx_production_in_tonnes">Approx production in (Tonnes)</string>
+    <string name="region">Region</string>
+    <string name="area_under_cultivation_in_acres">Area under cultivation in (Acres)</string>
+    <string name="add_details">Add Details</string>
+    <string name="period">period</string>
+    <string name="production">production</string>
+    <string name="area">Area</string>
+    <string name="please_select_the_soil_image">Select Soil Image</string>
+    <string name="choose_from_gallery">Gallery</string>
+    <string name="camera">Camera</string>
 </resources>

@@ -1,10 +1,15 @@
 package com.example.farmwise;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -19,11 +24,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class Login extends AppCompatActivity {
 
     EditText username,password;
+
     Button login,direct;
     AGdatabase mDatabaseHelper;
     @Override
@@ -38,7 +45,6 @@ public class Login extends AppCompatActivity {
         username = findViewById(R.id.ed1);
         password = findViewById(R.id.ed2);
         login = findViewById(R.id.btnlogin);
-        mDatabaseHelper = new AGdatabase(this);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +69,58 @@ public class Login extends AppCompatActivity {
             return true;
         }
     }
+    public void Language(View view){
+        showLanguageDialog();
+    }
+    private void showLanguageDialog() {
+        final String[] languages = {"English", "Telugu","Hindi","Tamil"}; // List of languages
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Select Language")
+                .setItems(languages, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // User clicked on a language
+                        String selectedLanguage = languages[which];
+                        // Change language based on selection
+                        changeLanguage(selectedLanguage);
+                    }
+                })
+                .setNegativeButton("Cancel", null); // Cancel button
 
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+    private void changeLanguage(String language) {
+        Locale newLocale;
+        switch (language) {
+            case "English":
+                newLocale = new Locale("en");
+                break;
+            case "Telugu":
+                newLocale = new Locale("te");
+                break;
+            case "Hindi":
+                newLocale = new Locale("hi");
+                break;
+            case "Tamil":
+                newLocale = new Locale("ta");
+                break;
+            default:
+                newLocale = Locale.getDefault(); // Default to device language
+        }
+
+        Configuration config = getResources().getConfiguration();
+        Locale currentLocale = config.locale;
+
+        // Check if the new locale is different from the current locale
+        if (!newLocale.equals(currentLocale)) {
+            config.setLocale(newLocale);
+            getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+
+            // Restart the activity to apply changes
+            recreate();
+        }
+    }
     public Boolean validatePassword(){
         String val = password.getText().toString();
         if (val.isEmpty()){
@@ -91,6 +148,7 @@ public class Login extends AppCompatActivity {
                     if(pass.equals(passwordFromDB)){
                         username.setError(null);
                         Intent intent = new Intent(Login.this,Agropanel.class);
+                        intent.putExtra("username",name);
                         startActivity(intent);
                     } else {
                         password.setError("Invalid credentials");

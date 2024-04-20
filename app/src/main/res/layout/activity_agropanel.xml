@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/card"
-    android:weightSum="10"
-    tools:context=".Agropanel">
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/card"
+        android:weightSum="10"
+        tools:context=".Agropanel">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="Harvest Hub"
+            android:text="@string/harvest_hub"
             android:textAllCaps="true"
             android:textColor="#FFFF"
             android:textSize="30dp"
@@ -68,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Crop Prediction"
+                android:text="@string/crop_prediction"
                 android:textAlignment="center"
                 android:textColor="#7A5C02"
                 android:textSize="15sp"
@@ -108,7 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Weather Analysis"
+                android:text="@string/weather"
                 android:textAlignment="center"
                 android:textColor="#7A5C02"
                 android:textSize="15sp"
@@ -147,7 +152,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Harvest Details"
+                android:text="@string/add_harvest_details"
                 android:textAlignment="center"
                 android:layout_marginTop="10dp"
                 android:textColor="#7A5C02"
@@ -187,7 +192,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All Harvest Details"
+                android:text="@string/all_harvest_details"
                 android:textAlignment="center"
                 android:layout_marginTop="10dp"
                 android:textColor="#7A5C02"
@@ -228,7 +233,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Informative Blogs"
+                android:text="@string/informative_blogs"
                 android:textAlignment="center"
                 android:textColor="#7A5C02"
                 android:textSize="15sp"
@@ -250,7 +255,6 @@
         app:cardElevation="8dp"
         android:onClick="gov"
         app:cardCornerRadius="8dp">
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -260,15 +264,15 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="40dp"
+                android:layout_width="44dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/gschemes"/>
+                android:src="@drawable/gschemes" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Government schemes"
+                android:text="@string/government_schemes"
                 android:textAlignment="center"
                 android:layout_marginTop="8dp"
                 android:textColor="#7A5C02"
@@ -280,13 +284,41 @@
     </androidx.cardview.widget.CardView>
 
     </GridLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="28dp">
+        <Button
+            android:id="@+id/changeLanguageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/change_language"
+            android:onClick="Language" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
     <ImageButton
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:background="@drawable/circlebutton"
-        android:onClick="logout"
+        android:onClick="settings"
         android:src="@drawable/ic_logout" />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logout"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="#7A5C02"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
 </LinearLayout>
+    </LinearLayout></ScrollView>

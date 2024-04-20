@@ -10,9 +10,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.farmwise" />
-                  <option name="mobileSdkAppId" value="1:225423252006:android:6ce91edbffa275b2f824e7" />
-                  <option name="projectId" value="farm-wise-18d7c" />
-                  <option name="projectNumber" value="225423252006" />
+                  <option name="mobileSdkAppId" value="1:81170129434:android:38a96087a082b3b3a127a3" />
+                  <option name="projectId" value="farm-wise-1d083" />
+                  <option name="projectNumber" value="81170129434" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

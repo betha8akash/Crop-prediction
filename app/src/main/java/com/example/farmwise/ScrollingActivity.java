@@ -49,7 +49,6 @@ public class ScrollingActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
             editTextN = findViewById(R.id.editTextN);
             editTextP = findViewById(R.id.editTextP);
             editTextK = findViewById(R.id.editTextK);
@@ -57,7 +56,6 @@ public class ScrollingActivity extends AppCompatActivity {
             editTextHumidity = findViewById(R.id.editTextHumidity);
             editTextPh = findViewById(R.id.editTextPh);
             editTextRainfall = findViewById(R.id.editTextRainfall);
-
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             String url = "https://api.ipdata.co/?api-key=741dca17556e27ff1f82c4b6f6f183fc9a15ee5edb46809d9b07d273";
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, new Response.Listener<JSONObject>() {
@@ -76,7 +74,7 @@ public class ScrollingActivity extends AppCompatActivity {
                                 double temp, humidity;
                                 try {
                                     JSONObject main = response.getJSONObject("main");
-                                    temp = main.getInt("temp");
+                                    temp = main.getInt("temp_max");
                                     temp = temp - 273.15 ;
                                     humidity = main.getInt("humidity");
                                     editTextHumidity.setText(String.valueOf(humidity));
@@ -126,6 +124,24 @@ public class ScrollingActivity extends AppCompatActivity {
                     resetFields();
                 }
             });
+            Intent intent = getIntent();
+            if (intent != null && intent.hasExtra("label")){
+                String label = intent.getStringExtra("label");
+                String n = getNValue(label);
+                String p = getPValue(label);
+                String k = getKValue(label);
+                String ph = getPhValue(label);
+                editTextK.setText(n+"");
+                editTextP.setText(p+"");
+                editTextN.setText(k+"");
+                editTextPh.setText(ph+"");
+
+            }else{
+                editTextK.setText("");
+                editTextP.setText("");
+                editTextN.setText("");
+                editTextPh.setText("");
+            }
         }
 
     public void sendRequestWithVolley() {
@@ -329,5 +345,84 @@ public class ScrollingActivity extends AppCompatActivity {
         editTextRainfall.setText("");
         textViewResult.setText("");
     }
-
+    private String getNValue(String soilType) {
+        switch (soilType) {
+            case "Alluvial":
+                return "170";
+            case "Black":
+                return "150";
+            case "Red":
+                return "150";
+            case "Clay":
+                return "100";
+            case "Laterite":
+                return "100";
+            case "Loamy":
+                return "100";
+            case "Sandy":
+                return "100";
+            default:
+                return "0";
+        }
+    }
+    private String getPValue(String soilType) {
+        switch (soilType) {
+            case "Alluvial":
+                return "22.5";
+            case "Black":
+                return "22.5";
+            case "Red":
+                return "22.5";
+            case "Clay":
+                return "17.5";
+            case "Laterite":
+                return "17.5";
+            case "Loamy":
+                return "17.5";
+            case "Sandy":
+                return "17.5";
+            default:
+                return "0";
+        }
+    }
+    private String getKValue(String soilType) {
+        switch (soilType) {
+            case "Alluvial":
+                return "200";
+            case "Black":
+                return "200";
+            case "Red":
+                return "180";
+            case "Clay":
+                return "280";
+            case "Laterite":
+                return "250";
+            case "Loamy":
+                return "200";
+            case "Sandy":
+                return "200";
+            default:
+                return "0";
+        }
+    }
+    private String getPhValue(String soilType) {
+        switch (soilType) {
+            case "Alluvial":
+                return "7.25";
+            case "Black":
+                return "7.75";
+            case "Red":
+                return "6.5";
+            case "Clay":
+                return "6.75";
+            case "Laterite":
+                return "5.75";
+            case "Loamy":
+                return "6.75";
+            case "Sandy":
+                return "6.25";
+            default:
+                return "0";
+        }
+    }
 }

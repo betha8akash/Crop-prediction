@@ -20,21 +20,21 @@
         android:id="@+id/editTextN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nitrogen Content (%)"
+        android:hint="@string/nitrogen_content"
         android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/editTextP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Phosphorous Content (%)"
+        android:hint="@string/phosphorous_content"
         android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/editTextK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Potassium Content (%)"
+        android:hint="@string/potassium_content"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -42,28 +42,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:height="48dp"
-        android:hint="Temperature (°C)"
+        android:hint="@string/temperature_c"
         android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/editTextHumidity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Relative Humidity (%)"
+        android:hint="@string/relative_humidity"
         android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/editTextPh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="pH Value"
+        android:hint="@string/ph_value"
         android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/editTextRainfall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Rainfall (mm)"
+        android:hint="@string/rainfall_mm"
         android:inputType="numberDecimal" />
 
     <Button
@@ -71,14 +71,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Predict" />
+        android:text="@string/predict" />
 
     <Button
         android:id="@+id/buttonReset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Reset" />
+        android:text="@string/reset" />
 
     <TextView
         android:id="@+id/textViewResult"

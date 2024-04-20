@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:textColor="#0C0C0C"
-            android:hint="period"/>
+            android:hint="@string/period"/>
 
         <TextView
             android:id="@+id/cid"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:textColor="#0C0C0C"
-            android:hint="crop type"/>
+            android:hint="@string/crop_name"/>
 
         <TextView
             android:id="@+id/prid"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:textColor="#0C0C0C"
-            android:hint="production"/>
+            android:hint="@string/production"/>
 
         <TextView
             android:id="@+id/rid"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:textColor="#0C0C0C"
-            android:hint="region"/>
+            android:hint="@string/region"/>
 
         <TextView
             android:id="@+id/aid"
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:textColor="#0C0C0C"
-            android:hint="area"/>
+            android:hint="@string/area"/>
 
     </LinearLayout>
 
